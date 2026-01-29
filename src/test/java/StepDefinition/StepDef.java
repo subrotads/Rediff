@@ -61,6 +61,21 @@ public class StepDef {
 	public void user_reenter_password_as(String rpwds) {
 	    detailpg.RetypePassword(rpwds);
 	}
+	
+	@Then("user select day as {string}")
+	public void user_select_day_as(String day) {
+	    detailpg.Day(day);
+	}
+
+	@Then("user select month as {string}")
+	public void user_select_month_as(String months) {
+	    detailpg.Month(months);
+	}
+
+	@Then("user select year as {string}")
+	public void user_select_year_as(String years) {
+	    detailpg.Year(years);
+	}
 
 	@Then("close the browser")
 	public void close_the_browser() {

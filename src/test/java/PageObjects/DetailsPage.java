@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DetailsPage {
@@ -45,6 +46,14 @@ public class DetailsPage {
 	@FindBy(xpath = "//input[@placeholder='Retype password']")
 	WebElement repswd;
 	
+	@FindBy(className = "day")
+	WebElement day;
+	
+	@FindBy(xpath = "//select[@class='middle month']")
+	WebElement month;
+	
+	@FindBy(className = "year")
+	WebElement year;
 	
 	public void CreateAccount() {
 		wait.until(ExpectedConditions.elementToBeClickable(createAcc)).click();
@@ -64,7 +73,8 @@ public class DetailsPage {
 	}
 	
 	public void CheckMessage() {
-		checkMsg.getText();
+		wait.until(ExpectedConditions.visibilityOf(checkMsg)).getText();
+	
 		
 		String acctualData = checkMsg.getText();
 		String expectedData = "Yippie! The ID you've chosen is available.";
@@ -83,6 +93,23 @@ public class DetailsPage {
 	public void RetypePassword(String rpwd) {
 		repswd.sendKeys(rpwd);
 	}
+	
+	public void Day(String date) {
+		
+		Select dropDown = new Select(day);
+		dropDown.selectByVisibleText(date);
+	}
+	
+	public void Month(String months) {
+		Select dropDown = new Select(month);
+		dropDown.selectByVisibleText(months);
+	}
+	
+	public void Year(String years) {
+		Select DropDown = new Select(year);
+		DropDown.selectByVisibleText(years);
+	}
+	
 	
 	
 }

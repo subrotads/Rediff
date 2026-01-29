@@ -1,12 +1,9 @@
 package TestRunner;
 
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.CucumberOptions;
 
-
-@RunWith(Cucumber.class)
 @CucumberOptions(
 		features = ".//Features/Rediff.feature",
 		glue = "StepDefinition",
@@ -16,6 +13,6 @@ import io.cucumber.junit.CucumberOptions;
 		
 		)
 
-public class Runner {
+public class Runner extends AbstractTestNGCucumberTests {
 
 }

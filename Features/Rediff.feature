@@ -10,4 +10,7 @@ Scenario Outline: User fill details for creating account on Rediffmail
 		Then user check if ID is available or not
 		And user fill chose password as "Narayan"
 		And user reenter password as "Narayan"
+		And user select day as "23"
+		And user select month as "JAN"
+		And user select year as "1984"
 		And close the browser
