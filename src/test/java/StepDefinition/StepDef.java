@@ -1,0 +1,75 @@
+package StepDefinition;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import PageObjects.DetailsPage;
+import io.cucumber.java.en.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class StepDef {
+	
+	WebDriver driver;
+	DetailsPage detailpg;
+	
+	
+	@Given("User launches Chrome Browser")
+	public void user_launches_chrome_browser() {
+	    WebDriverManager.chromedriver().setup();
+	    driver = new ChromeDriver();
+	    driver.manage().window().maximize();
+	    detailpg = new DetailsPage(driver);
+	    
+	}
+
+	@When("User opens URL {string}")
+	public void user_opens_url(String url) {
+	    driver.get(url);
+	}
+
+	@When("User click on the link create account")
+	public void user_click_on_the_link_create_account() {
+	    detailpg.CreateAccount();
+	}
+
+	@When("User fill Full name as {string}")
+	public void user_fill_full_name_as(String names) {
+	    detailpg.FullName(names);
+	}
+
+	@When("user fill Choose a Rediffmail ID as {string}")
+	public void user_fill_choose_a_rediffmail_id_as(String ids) {
+	    detailpg.RediffId(ids);
+	}
+
+	@When("user click on Check availablity button")
+	public void user_click_on_check_availablity_button() {
+	    detailpg.CheckButton();
+	}
+
+	@Then("user check if ID is available or not")
+	public void user_check_if_id_is_available_or_not() {
+	    detailpg.CheckMessage();
+	}
+
+	@Then("user fill chose password as {string}")
+	public void user_fill_chose_password_as(String pwds) {
+	    detailpg.Password(pwds);
+	}
+
+	@Then("user reenter password as {string}")
+	public void user_reenter_password_as(String rpwds) {
+	    detailpg.RetypePassword(rpwds);
+	}
+
+	@Then("close the browser")
+	public void close_the_browser() {
+	   driver.close();
+	}
+
+
+	
+	
+	
+
+}
