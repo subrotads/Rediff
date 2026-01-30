@@ -19,7 +19,9 @@ Scenario Outline: User fill details for creating account on Rediffmail
 		And User enter Recovery Email ID as "subrotads@gmail.com"
 		And User enter mobile no as "9836378482"
 		And user click on the create my account
-		And user close the browser
+		And User click on terms and conditions
+		And User close the terms witndow by click on accept button
+		And User close the Browser
 		
 		
 		
