@@ -1,6 +1,7 @@
 package PageObjects;
 
 import java.time.Duration;
+import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -73,6 +74,12 @@ public class DetailsPage {
 	
 	@FindBy(xpath = "//input[@value='Create my account']")
 	WebElement create;
+	
+	@FindBy(linkText="terms and conditions")
+	WebElement terms;
+	
+	@FindBy(xpath = "//input[@value='OK']")
+	WebElement accept;
 	
 	public void CreateAccount() {
 		wait.until(ExpectedConditions.elementToBeClickable(createAcc)).click();
@@ -162,5 +169,23 @@ public class DetailsPage {
 	public void MyAcc() {
 		create.click();
 	}
+	
+	public void TermsAnd() {
+		terms.click();
+		switchToNewTab();
+	}
+	
+	public void switchToNewTab() {
+        Set<String> windows = driver.getWindowHandles();
+        for (String window : windows) {
+            driver.switchTo().window(window);
+        }
+	}
+	
+	public void AcceptBtn() {
+		accept.click();
+	}
+	
+	
 	
 }
