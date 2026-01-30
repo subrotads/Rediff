@@ -119,7 +119,7 @@ public class StepDef {
 	}
 
 
-	@Then("user close the browser")
+	@Then("User close the Browser")
 	public void user_close_the_browser() {
 	    driver.close();
 	    driver.quit();
