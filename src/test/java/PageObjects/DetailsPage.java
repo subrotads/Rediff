@@ -2,6 +2,7 @@ package PageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,6 +55,24 @@ public class DetailsPage {
 	
 	@FindBy(className = "year")
 	WebElement year;
+	
+	@FindBy(xpath = "//input[@value='f']")
+	WebElement radioButton;
+	
+	@FindBy(xpath = "//select[@id='country']")
+	WebElement country;
+	
+	@FindBy(xpath = "//select[@onchange='showothcity();fieldTrack(this);']")
+	WebElement city;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter recovery email']")
+	WebElement reemail;
+	
+	@FindBy(id = "mobno")
+	WebElement mobile;
+	
+	@FindBy(xpath = "//input[@value='Create my account']")
+	WebElement create;
 	
 	public void CreateAccount() {
 		wait.until(ExpectedConditions.elementToBeClickable(createAcc)).click();
@@ -108,8 +127,40 @@ public class DetailsPage {
 	public void Year(String years) {
 		Select DropDown = new Select(year);
 		DropDown.selectByVisibleText(years);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)","");
+		
+		
 	}
 	
+	public void RadioButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(radioButton)).click();
+	}
 	
+	public void Country(String countr) {
+		Select dropDown = new Select(country);
+		dropDown.selectByVisibleText(countr);
+	}
+	
+	public void City(String citi) {
+		Select dropDown = new Select(city);
+		dropDown.selectByVisibleText(citi);
+	}
+	
+	public void Recovery(String recovem) {
+		reemail.sendKeys(recovem);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,500)","");
+	}
+	
+	public void Mobil(String phone) {
+		mobile.sendKeys(phone);
+	}
+	
+	public void MyAcc() {
+		create.click();
+	}
 	
 }
