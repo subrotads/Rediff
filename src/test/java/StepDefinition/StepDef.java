@@ -76,15 +76,43 @@ public class StepDef {
 	public void user_select_year_as(String years) {
 	    detailpg.Year(years);
 	}
-
-	@Then("close the browser")
-	public void close_the_browser() {
-	   driver.close();
+	
+	@Then("User select gender")
+	public void user_select_gender() {
+	   detailpg.RadioButton();
 	}
 
+	@Then("User select country as {string}")
+	public void user_select_country_as(String Contry) {
+	    detailpg.Country(Contry);
+	}
 
+	@Then("User select city as {string}")
+	public void user_select_city_as(String Cities) {
+	    detailpg.City(Cities);
+	}
 	
+	@Then("User enter Recovery Email ID as {string}")
+	public void user_enter_recovery_email_id_as(String recoveryEmail) {
+		detailpg.Recovery(recoveryEmail);
+	    
+	}
+
+	@Then("User enter mobile no as {string}")
+	public void user_enter_mobile_no_as(String MobileNo) {
+	    detailpg.Mobil(MobileNo);
+	}
 	
-	
+	@Then("user click on the create my account")
+	public void user_click_on_the_create_my_account() {
+	    detailpg.MyAcc();
+	}
+
+	@Then("user close the browser")
+	public void user_close_the_browser() {
+	    driver.close();
+	    driver.quit();
+	}
+
 
 }
