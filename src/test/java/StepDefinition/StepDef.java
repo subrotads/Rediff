@@ -107,6 +107,17 @@ public class StepDef {
 	public void user_click_on_the_create_my_account() {
 	    detailpg.MyAcc();
 	}
+	
+	@Then("User click on terms and conditions")
+	public void user_click_on_terms_and_conditions() {
+	    detailpg.TermsAnd();
+	}
+	
+	@Then("User close the terms witndow by click on accept button")
+	public void user_close_the_terms_witndow_by_click_on_accept_button() {
+	    detailpg.AcceptBtn();
+	}
+
 
 	@Then("user close the browser")
 	public void user_close_the_browser() {
